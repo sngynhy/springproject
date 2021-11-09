@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.2.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.2.xsd">
+
+	<!-- 컴포넌트 스캔 -->
+	<context:component-scan base-package="model"/>	
+	
+	<!-- bean으로 Datasource 객체 등록 -->
+	<!-- 객체를 해제하는 시점에 자동 반납을 위하여 destroy-method="colse" 처리 -->
+	<bean class="org.apache.commons.dbcp.BasicDataSource" id="dataSource" destroy-method="close">
+		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>
+		<property name="url" value="jdbc:oracle:thin:@localhost:1521:xe"/>
+		<property name="username" value="sngynhy"/>
+		<property name="password" value="qwer"/>
+	</bean>
+	
+	<!-- jdbcTemplate 객체 등록 -->
+	<bean class="org.springframework.jdbc.core.JdbcTemplate"
+		id="jdbcTemplate">
+		<property ref="dataSource" name="dataSource" />
+	</bean>
+	
+	<!-- 트랜잭션 사용을 위한 빈 등록 -->
+	<bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	
+	<!-- @Transactional 어노테이션 처리 -->
+	<tx:annotation-driven transaction-manager="txManager" />
+	
+	<!-- txManager를 advice화 -->
+<!-- 	<tx:advice id="txAdvice" transaction-manager="txManager">
+		<tx:attributes>
+			<tx:method name="get*" read-only="true" />
+			<tx:method name="*" />
+		</tx:attributes>
+	</tx:advice>
+  	<aop:config>
+		<aop:pointcut expression="execution(* model..*Impl.*(..))" id="tPointcut"/>
+		<aop:advisor advice-ref="txAdvice" pointcut-ref="tPointcut"/>
+	</aop:config> -->
+	<!-- 어노테이션으로 AOP 사용할 것을 컨테이너에 알려주기 -->
+	<!-- <aop:aspectj-autoproxy /> -->
+		
+	
+	<!-- sqlSessionFactoryBean 객체 등록 -->
+	<bean id="sessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+      <property name="dataSource" ref="dataSource" />
+      <property name="configLocation" value="classpath:sql-map-config.xml" />
+	</bean>
+	
+	<!-- SqlSessionTemplate 객체 등록 -->
+	<bean class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg ref="sessionFactory"></constructor-arg>
+	</bean>
+	
+</beans>

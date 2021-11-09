@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	
+	<!-- VO 별칭 설정 -->
+	<typeAliases>
+		<typeAlias alias="userboard" type="model.userboard.UserBoardVO"/>
+		<typeAlias alias="member" type="model.member.MemberVO"/>
+		<typeAlias alias="reply" type="model.reply.ReplyVO"/>
+		<typeAlias alias="like" type="model.like.LikeVO"/>
+		<typeAlias alias="nation" type="model.nation.NationVO"/>
+		<typeAlias alias="area" type="model.area.AreaVO"/>
+		<typeAlias alias="category" type="model.category.CategoryVO"/>
+		<typeAlias alias="adminboard" type="model.adminboard.AdminBoardVO"/>
+	</typeAliases>
+	
+	<!-- mappings 패키지 내부의 메서드 (==mapping.xml)와의 연결 설정
+		resource = "패키지명/파일명.xml" -->
+	<mappers>
+		<mapper resource="mappings/userboard-mapping.xml" />
+		<mapper resource="mappings/member-mapping.xml" />
+		<mapper resource="mappings/reply-mapping.xml" />
+		<mapper resource="mappings/like-mapping.xml" />
+		<mapper resource="mappings/nation-mapping.xml" />
+		<mapper resource="mappings/area-mapping.xml" />
+		<mapper resource="mappings/category-mapping.xml" />
+		<mapper resource="mappings/adminboard-mapping.xml" />
+	</mappers>
+	
+</configuration>
