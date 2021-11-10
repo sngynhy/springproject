@@ -65,7 +65,7 @@
 								</header>
 								
 								<!-- 게시글 입력 폼 -->
-								<form method="post" action="insertBoard.do">
+								<form method="post" action="insertBoard.do" name="form1">
 									<input type="hidden" name="id" value="${sessionID}">
 									<input type="hidden" name="b_type" value="${data.b_type}">
 									<input type="hidden" name="cate_id" value="${data.cate_id}">
@@ -74,7 +74,7 @@
 									<h2><span style="float: left; width: 10%">제목 : </span><input type="text" name="title" id="title" required="required" style="width: 90%;"></h2>
 									<!-- CKEditor -->
 									<textarea name="content" id="editor"></textarea>
-									<input type="submit" value="등록" class="button" style="float: right;">
+									<input type="button" value="등록" onclick="send()" class="button" style="float: right;">
 								</form>
 							</section>
 						</div>
@@ -91,7 +91,20 @@
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
 	</body>
-	<script>	
+	<script>
+	function send() {
+		if ($('#title').val() == '') {
+			alert('제목을 입력해주세요.');
+			$('#title').focus();
+			return;
+		}
+		if ($('.ck-content').text() == '') {
+			alert('내용을 입력해주세요.');
+			$('.ck-content').focus();
+			return;
+		}
+		document.form1.submit();
+	}
 	function changeCateId(obj) {
 		var selectValue = obj.value;
 		/* console.log(selectValue); */
