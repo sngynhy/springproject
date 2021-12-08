@@ -13,9 +13,9 @@
 		<title>WANDERIZM</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<link rel="stylesheet" href="assets/css/recommand.css" />
-		<link rel="icon" href="images/road-trip.png">
+		<link rel="stylesheet" href="/assets/css/main.css" />
+		<link rel="stylesheet" href="/assets/css/recommand.css" />
+		<link rel="icon" href="/images/road-trip.png">
 	</head>
 	<body class="is-preload">
 
@@ -28,33 +28,33 @@
 
 						<!-- Header -->
 							<header id="header">
-								<a href="main.do" class="logo"><strong>WANDERIZM</strong></a>
+								<a href="/main.do" class="logo"><strong>WANDERIZM</strong></a>
 								<mytag:login />
 							</header>
 						
 						<!-- Section -->
 							<section>
 								<div class="recommand-header">
-									<h2 class="recommand-title">Recommand</h2>
+									<h2 class="recommand-title">Recommend</h2>
 									<c:if test="${sessionID == 'seong'}">
 									<div class="recommand-btn-area">
-										<a href="insertRecoomandView.do" class="button primary samll">작성하기</a>
+										<a href="/jsp-adminboard/insert.jsp" class="button primary samll">작성하기</a>
 									</div>
 									</c:if>
 								</div>
-							
-							<c:forEach var="v" items="${datas}">
+								
 								<div class="posts">
 									<!-- list for start -->
+									<c:forEach var="v" items="${datas}">
 									<article>
-										<a href="getRecommand.do?b_id=${v.b_id}" class="image"><img src="${v.img_path}" alt="" /></a>
-										<h2><a href="getRecommand.do?b_id=${v.b_id}">${v.title}</a></h2>
+										<a href="/getAdminBoard.do?b_id=${v.b_id}" class="image"><img src="/${v.img_path}" /></a>
+										<h2><a href="/getAdminBoard.do?b_id=${v.b_id}">${v.title}</a></h2>
 									</article>
+									</c:forEach>
 									<!-- list for end -->
 								</div>
-							</c:forEach>
 							</section>
-							
+								
 						</div>
 					</div>
 
@@ -63,11 +63,11 @@
 			</div>
 
 		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+			<script src="/assets/js/jquery.min.js"></script>
+			<script src="/assets/js/browser.min.js"></script>
+			<script src="/assets/js/breakpoints.min.js"></script>
+			<script src="/assets/js/util.js"></script>
+			<script src="/assets/js/main.js"></script>
 
 	</body>
 	

@@ -80,7 +80,7 @@ public class UserBoardController {
 		model.addAttribute("cate_id", vo.getCate_id());
 		model.addAttribute("n_id", vo.getN_id());
 		model.addAttribute("pagination", pagination);
-		return "getBoardList.jsp";
+		return "/jsp-userboard/getBoardList.jsp";
 	}
 	
 	@RequestMapping("/getBoard.do")
@@ -92,14 +92,14 @@ public class UserBoardController {
 		}
 		model.addAttribute("data", boardService.getBoard(vo));
 		model.addAttribute("rdata", replyService.getReplyList(rvo));
-		return "readBoard.jsp";
+		return "/jsp-userboard/readBoard.jsp";
 	}
 	
 	@RequestMapping("/insertBoardView.do")
 	public String insertView(HttpSession session, UserBoardVO vo, Model model) {
 		vo.setId((String) session.getAttribute("sessionID"));
 		model.addAttribute("data", vo);
-		return "insertBoard.jsp";
+		return "/jsp-userboard/insertBoard.jsp";
 	}
 	
 	@RequestMapping("/insertBoard.do")
@@ -113,7 +113,7 @@ public class UserBoardController {
 	public String updateView(HttpSession session, UserBoardVO vo, Model model) {
 		vo.setId((String) session.getAttribute("sessionID"));
 		model.addAttribute("data", boardService.getBoard(vo));
-		return "updateBoard.jsp";
+		return "/jsp-userboard/updateBoard.jsp";
 	}
 	
 	@RequestMapping("/updateBoard.do")

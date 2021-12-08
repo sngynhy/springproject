@@ -13,9 +13,9 @@
 		<title>WANDERIZM</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<link rel="stylesheet" href="assets/css/common.css" />
-		<link rel="icon" href="images/road-trip.png">
+		<link rel="stylesheet" href="/assets/css/main.css" />
+		<link rel="stylesheet" href="/assets/css/common.css" />
+		<link rel="icon" href="/images/road-trip.png">
 	</head>
 	<body class="is-preload">
 
@@ -28,7 +28,7 @@
 
 							<!-- Header -->
 								<header id="header">
-									<a href="main.do" class="logo"><strong>WANDERIZM</strong></a>
+									<a href="/main.do" class="logo"><strong>WANDERIZM</strong></a>
 									<mytag:login />
 								</header>
 
@@ -90,16 +90,16 @@
 										<div class="common-btn-area">
 											<c:choose>
 												<c:when test="${!empty sessionID && data.id != sessionID && data.fav == 0}"> <!-- 빈 하트 -->
-													<img alt="하트이미지" src="images/heart_1.png" id="fav" onclick="like('${data.b_id}', '${sessionID}')" style="width: 18px; cursor: pointer;" />
+													<img alt="하트이미지" src="/images/heart_1.png" id="fav" onclick="like('${data.b_id}', '${sessionID}')" style="width: 18px; cursor: pointer;" />
 												</c:when>
 												<c:when test="${!empty sessionID && data.fav > 0}"> <!-- 찬 하트 -->
-													<img alt="하트이미지" src="images/heart_2.png" id="fav" onclick="like('${data.b_id}', '${sessionID}')" style="width: 18px; cursor: pointer;" />
+													<img alt="하트이미지" src="/images/heart_2.png" id="fav" onclick="like('${data.b_id}', '${sessionID}')" style="width: 18px; cursor: pointer;" />
 												</c:when>
 											</c:choose>
 											
 											<c:if test="${data.id == sessionID}">
 												<ul class="actions" style="float: right;">
-													<li><input type="button" value="수정" class="button small" onclick="location.href='updateboardView.do?b_id=${data.b_id}'"/></li>
+													<li><input type="button" value="수정" class="button small" onclick="location.href='/updateboardView.do?b_id=${data.b_id}'"/></li>
 													<li><input type="button" value="삭제" class="button small" onclick="deleteBoard('${data.b_id}', '${data.b_type}', '${data.cate_id}', '${data.a_id}', '${data.n_id}')" /></li>
 												</ul>
 											</c:if>
@@ -131,7 +131,7 @@
 											</li>
 										</ul>
 										</c:forEach>
-										<form method="post" action="insertReply.do">
+										<form method="post" action="/insertReply.do">
 											<c:if test="${!empty sessionID}">
 											<input type="hidden" name="id" value="${sessionID}">
 											<input type="hidden" name="b_id" value="${data.b_id}">
@@ -153,13 +153,13 @@
 									<c:if test="${!empty sessionID}">
 										<c:choose>
 											<c:when test="${data.b_type eq 'info'}">
-											<li><a href="insertBoardView.do?b_type=info&cate_id=${cate_id}" class="button small" style="float: right;">글쓰기</a></li>
+											<li><a href="/insertBoardView.do?b_type=info&cate_id=${cate_id}" class="button small" style="float: right;">글쓰기</a></li>
 											</c:when>
 											<c:when test="${data.b_type eq 'ask'}">
-												<li><a href="insertBoardView.do?b_type=ask" class="button small" style="float: right;">글쓰기</a></li>
+												<li><a href="/insertBoardView.do?b_type=ask" class="button small" style="float: right;">글쓰기</a></li>
 											</c:when>
 											<c:when test="${data.b_type eq 'review'}">
-												<li><a href="insertBoardView.do?b_type=review&a_id=${a_id}&n_id=${n_id}" class="button small" style="float: right;">글쓰기</a></li>
+												<li><a href="/insertBoardView.do?b_type=review&a_id=${a_id}&n_id=${n_id}" class="button small" style="float: right;">글쓰기</a></li>
 											</c:when>
 										</c:choose>
 									</c:if>
@@ -176,28 +176,28 @@
 			</div>
 
 		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+			<script src="/assets/js/jquery.min.js"></script>
+			<script src="/assets/js/browser.min.js"></script>
+			<script src="/assets/js/breakpoints.min.js"></script>
+			<script src="/assets/js/util.js"></script>
+			<script src="/assets/js/main.js"></script>
 
 	</body>
 	<script type="text/javascript">
 		function deleteBoard(b_id, b_type, cate_id, a_id, n_id) {
 			if (confirm("삭제하시겠습니까?")) {
-				window.location.href="deleteBoard.do?b_id="+b_id+"&b_type="+b_type+"&cate_id="+cate_id+"&a_id="+a_id+"&n_id="+n_id;
+				window.location.href="/deleteBoard.do?b_id="+b_id+"&b_type="+b_type+"&cate_id="+cate_id+"&a_id="+a_id+"&n_id="+n_id;
 			}
 		}
 		function deleteReply(r_id, b_id, b_type, cate_id, a_id, n_id) {
-			window.location.href="deleteReply.do?r_id="+r_id+"&b_id="+b_id+"&b_type="+b_type+"&cate_id="+cate_id+"&a_id="+a_id+"&n_id="+n_id;
+			window.location.href="/deleteReply.do?r_id="+r_id+"&b_id="+b_id+"&b_type="+b_type+"&cate_id="+cate_id+"&a_id="+a_id+"&n_id="+n_id;
 		}
 		
 		function like(b_id, id) { // 찜 기능 - 버튼 클릭시 찜 추가 또는 찜 제거
 			var liked = $('#fav').attr('src').indexOf('heart_2') > 0; // 찜 한 경우
-			var url = "insertLike.do";
+			var url = "/insertLike.do";
 			if(liked) { // 이미 찜 한 상태라면 클릭 시 찜 제거
-				url = "deleteLike.do";
+				url = "/deleteLike.do";
 			}
 			$.ajax({
 				url: url,
@@ -209,11 +209,11 @@
                 success: function (res) {
 			        if (liked) { // 찜 한 경우
 			        	if(res == 'true') {
-				        	$('#fav').attr('src','images/heart_1.png');	
+				        	$('#fav').attr('src','/images/heart_1.png');	
 				        }		        		
 		        	} else { // 찜 안한 경우
 		        		if(res == 'true') {
-		        			$('#fav').attr('src','images/heart_2.png');
+		        			$('#fav').attr('src','/images/heart_2.png');
 				        }
 		        	}
 			        

@@ -62,7 +62,7 @@ public class MemberController {
 	public String getMember(HttpSession session, MemberVO vo, Model model) {
 		vo.setId((String) session.getAttribute("sessionID"));
 		model.addAttribute("data", memberService.getMember(vo));
-		return "mypage.jsp";
+		return "/jsp-member/mypage.jsp";
 	}
 	
 	@ResponseBody
@@ -79,7 +79,7 @@ public class MemberController {
 	public String udpateView(HttpSession session, HttpServletResponse response, MemberVO vo, Model model) throws IOException {
 		vo.setId((String) session.getAttribute("sessionID"));
 		model.addAttribute("data", memberService.getMember(vo));
-		return "updateMember.jsp";
+		return "/jsp-member/updateMember.jsp";
 	}
 	
 	@ResponseBody

@@ -4,7 +4,7 @@
 	<c:when test="${b_type eq 'info'}">
 		<h3 class="title-underline">정보 공유 게시판</h3>
 		<div class="common-btn-area">
-			<form method="post" action="getBoardList.do">
+			<form method="post" action="/getBoardList.do">
 				<select name="cate_id" class="category-btn-area" onchange="changeCateId(this)">
 				<c:forEach var="v" items="${sidebarData.cateData}">
 					<c:if test="${cate_id eq v.cate_id}">
@@ -24,7 +24,7 @@
 	<c:when test="${b_type eq 'review'}">
 		<h3 class="title-underline">여행 후기 게시판</h3>
 		<div class="common-btn-area">
-		<form method="post" action="getBoardList.do">
+		<form method="post" action="/getBoardList.do">
 			<select name="n_id" class="category-btn-area" onchange="changeN_Id(this)">
 			<c:forEach var="v" items="${sidebarData.nationData}">
 				<c:if test="${n_id eq v.n_id}">

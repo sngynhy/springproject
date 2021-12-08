@@ -5,17 +5,48 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>업로드 미리보기</title>
-    <style>
-        .dellink{
-          display: none;
-        }
+   <style>
+	.image-container {
+		height: 65px;
+		width: 65px;
+	}
     </style>
     <script type="text/javascript" src="upload.js"></script>
 </head>
 <body>
-      <input type="file" class="hidden_input" id="imageSelector" name="imageSelector" 
-      accept="image/jpeg, image/jpg, image/png" multiple />
-      <img src="" class="thumb"/>
-      <a href="javascript:void(0);" class="dellink">썸네일삭제</a>    
+	<div class="image-container">
+	    <img style="width: 60px;" id="preview-image" src="https://dummyimage.com/500x500/ffffff/000000.png&text=preview+image">
+	    <input style="display: block;" type="file" id="input-image">
+	</div>
+	<!-- <div class="product__item__pic set-bg" style="float: left;">
+		<img src="${datas.filename}" class="thumb" />
+	</div>
+	<input type="file" class="hidden_input" id="imageSelector" name="filename" accept="image/jpeg, image/jpg, image/png" required style="height: 30px;width: 400px;margin: 12px;color: #FFFFFF;">
+   	<br>
+    <input type="file" class="product__item__pic" id="imageSelector" name="imageSelector" accept="image/jpeg, image/jpg, image/png" multiple />
+    <img src="" class="thumb"/>
+    <a href="javascript:void(0);" class="dellink">썸네일삭제</a> -->
 </body>
+<script type="text/javascript">
+	function readImage(input) {
+	    // 인풋 태그에 파일이 있는 경우
+	    if(input.files && input.files[0]) {
+	        // 이미지 파일인지 검사 (생략)
+	        // FileReader 인스턴스 생성
+	        const reader = new FileReader()
+	        // 이미지가 로드가 된 경우
+	        reader.onload = e => {
+	            const previewImage = document.getElementById("preview-image")
+	            previewImage.src = e.target.result
+	        }
+	        // reader가 이미지 읽도록 하기
+	        reader.readAsDataURL(input.files[0])
+	    }
+	}
+	// input file에 change 이벤트 부여
+	const inputImage = document.getElementById("input-image")
+	inputImage.addEventListener("change", e => {
+	    readImage(e.target)
+	})
+</script>
 </html>

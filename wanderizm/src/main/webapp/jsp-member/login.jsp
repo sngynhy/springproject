@@ -12,9 +12,9 @@
 		<title>WANDERIZM</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<link rel="stylesheet" href="assets/css/login.css" />
-		<link rel="icon" href="images/road-trip.png">
+		<link rel="stylesheet" href="/assets/css/main.css" />
+		<link rel="stylesheet" href="/assets/css/login.css" />
+		<link rel="icon" href="/images/road-trip.png">
 	</head>
 	<body class="is-preload">
 
@@ -27,7 +27,7 @@
 
 							<!-- Header -->
 								<header id="header">
-									<a href="main.do" class="logo"><strong>WANDERIZM</strong></a>
+									<a href="/main.do" class="logo"><strong>WANDERIZM</strong></a>
 								</header>
 
 							<!-- Banner -->
@@ -50,7 +50,7 @@
 											<div class="col-12">
 												<ul class="actions">
 													<li><input type="button" value="Login" class="primary" onclick="login()" /></li>
-													<li><input type="button" value="Join" onclick="location.href='join.jsp'"/></li>
+													<li><input type="button" value="Join" onclick="location.href='/jsp-member/join.jsp'"/></li>
 												</ul>
 											</div>
 										</div>
@@ -65,11 +65,11 @@
 			</div>
 
 		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+			<script src="/assets/js/jquery.min.js"></script>
+			<script src="/assets/js/browser.min.js"></script>
+			<script src="/assets/js/breakpoints.min.js"></script>
+			<script src="/assets/js/util.js"></script>
+			<script src="/assets/js/main.js"></script>
 
 	</body>
 	<script type="text/javascript">
@@ -87,14 +87,14 @@
 			
 			$.ajax({ 
 				type: "POST",
-				url: "login.do",
+				url: "/login.do",
 				data: {
 					id : $("#id").val(),
 					pw : $("#pw").val()
 				},
 				success: function(res) { 
 					if (res == true) {  // 중복 데이터가 없을 때
-						window.location.href = 'main.do';
+						window.location.href = '/main.do';
 					} else {
 						alert("로그인에 실패하였습니다. 아이디 혹은 비밀번호 확인 후 다시 시도하세요.");
 						$("#id").text("");

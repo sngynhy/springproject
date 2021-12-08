@@ -13,8 +13,8 @@
 		<title>WANDERIZM</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<link rel="icon" href="images/road-trip.png">
+		<link rel="stylesheet" href="/assets/css/main.css" />
+		<link rel="icon" href="/images/road-trip.png">
 	</head>
 	<body class="is-preload">
 
@@ -68,11 +68,11 @@
 			</div>
 
 		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+			<script src="/assets/js/jquery.min.js"></script>
+			<script src="/assets/js/browser.min.js"></script>
+			<script src="/assets/js/breakpoints.min.js"></script>
+			<script src="/assets/js/util.js"></script>
+			<script src="/assets/js/main.js"></script>
 	</body>
 	<script type="text/javascript">
 		function checkPw() {
@@ -85,14 +85,14 @@
 			
 			$.ajax({ 
 				type: "POST",
-				url: "checkPW.do",
+				url: "/checkPW.do",
 				data: {
 					id : $("#id").val(),
 					pw : $("#pw").val()
 				},
 				success: function(res) { 
 					if (res == true) {
-						window.location.href = 'updateView.do';
+						window.location.href = '/updateView.do';
 					} else {
 						alert("비밀번호가 일치하지 않습니다.");
 					}

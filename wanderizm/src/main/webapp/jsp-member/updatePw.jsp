@@ -13,8 +13,8 @@
 		<title>WANDERIZM</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<link rel="icon" href="images/road-trip.png">
+		<link rel="stylesheet" href="/assets/css/main.css" />
+		<link rel="icon" href="/images/road-trip.png">
 		<style>
 			.resultText {
 			    color: red;
@@ -65,13 +65,13 @@
 			</div>
 
 		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
-			<script src="jquery-3.6.0.min.js"></script>
-			<script src="assets/js/validation.js"></script>
+			<script src="/assets/js/jquery.min.js"></script>
+			<script src="/assets/js/browser.min.js"></script>
+			<script src="/assets/js/breakpoints.min.js"></script>
+			<script src="/assets/js/util.js"></script>
+			<script src="/assets/js/main.js"></script>
+			<script src="/assets/js/jquery-3.6.0.min.js"></script>
+			<script src="/assets/js/validation.js"></script>
 	</body>
 	<script type="text/javascript">
 		function updatePw() {
@@ -110,7 +110,7 @@
 			
 			$.ajax({ 
 				type: "POST",
-				url: "updatePw.do",
+				url: "/updatePw.do",
 				data: {
 					pw : $("#pw1").val()
 				},

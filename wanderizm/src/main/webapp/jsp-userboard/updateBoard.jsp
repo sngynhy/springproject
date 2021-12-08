@@ -13,9 +13,9 @@
 		<title>WANDERIZM</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<link rel="stylesheet" href="assets/css/common.css" />
-		<link rel="icon" href="images/road-trip.png">
+		<link rel="stylesheet" href="/assets/css/main.css" />
+		<link rel="stylesheet" href="/assets/css/common.css" />
+		<link rel="icon" href="/images/road-trip.png">
 		<script src="https://cdn.ckeditor.com/ckeditor5/30.0.0/classic/ckeditor.js"></script>
 		<style>
 			.ck-editor__editable_inline {
@@ -34,7 +34,7 @@
 
 						<!-- Header -->
 							<header id="header">
-								<a href="main.jsp" class="logo"><strong>WANDERIZM</strong></a>
+								<a href="/main.jsp" class="logo"><strong>WANDERIZM</strong></a>
 								<mytag:login />
 							</header>
 
@@ -65,7 +65,7 @@
 								</header>
 								
 								<!-- 게시글 입력 폼 -->
-								<form method="post" action="updateBoard.do">
+								<form method="post" action="/updateBoard.do">
 									<input type="hidden" name="id" value="${sessionID}">
 									<input type="hidden" name="b_id" value="${data.b_id}">
 									<h2><span style="float: left; width: 10%">제목 : </span><input type="text" name="title" id="title" value="${data.title}" required="required" style="width: 90%;"></h2>
@@ -81,11 +81,11 @@
 			</div>
 
 		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+			<script src="/assets/js/jquery.min.js"></script>
+			<script src="/assets/js/browser.min.js"></script>
+			<script src="/assets/js/breakpoints.min.js"></script>
+			<script src="/assets/js/util.js"></script>
+			<script src="/assets/js/main.js"></script>
 	</body>
 	<script>
     // 3. CKEditor5를 생성할 textarea 지정
@@ -93,7 +93,7 @@
     .create( document.querySelector('#editor'),{
 		language: "ko",
 		ckfinder: {
-	        uploadUrl: 'fileupload.do'
+	        uploadUrl: '/fileupload.do'
 		},
 		alignment: {
             options: [ 'left', 'center', 'right' ]

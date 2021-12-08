@@ -12,10 +12,10 @@
 		<title>WANDERIZM</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<link rel="stylesheet" href="assets/css/login.css" />
-		<link rel="stylesheet" href="assets/css/common.css" />
-		<link rel="icon" href="images/road-trip.png">
+		<link rel="stylesheet" href="/assets/css/main.css" />
+		<link rel="stylesheet" href="/assets/css/login.css" />
+		<link rel="stylesheet" href="/assets/css/common.css" />
+		<link rel="icon" href="/images/road-trip.png">
 	</head>
 	<body class="is-preload">
 
@@ -28,9 +28,9 @@
 
 							<!-- Header -->
 								<header id="header">
-									<a href="main.do" class="logo"><strong>WANDERIZM</strong></a>
+									<a href="/main.do" class="logo"><strong>WANDERIZM</strong></a>
 									<ul class="icons">
-										<li><a href="login.jsp" class="button">LOGIN</a></li>
+										<li><a href="/jsp-member/login.jsp" class="button">LOGIN</a></li>
 									</ul>
 								</header>
 
@@ -84,7 +84,7 @@
 												<div class="col-12">
 													<ul class="actions">
 														<li><input type="button" value="JOIN" onclick="join()" class="primary" /></li>
-														<li><input type="button" value="CANCLE" onclick="location.href='main.do'"/></li>
+														<li><input type="button" value="CANCLE" onclick="location.href='/main.do'"/></li>
 													</ul>
 												</div>
 											</div>
@@ -100,13 +100,13 @@
 			</div>
 
 		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
-			<script src="jquery-3.6.0.min.js"></script>
-			<script src="assets/js/validation.js"></script>
+			<script src="/assets/js/jquery.min.js"></script>
+			<script src="/assets/js/browser.min.js"></script>
+			<script src="/assets/js/breakpoints.min.js"></script>
+			<script src="/assets/js/util.js"></script>
+			<script src="/assets/js/main.js"></script>
+			<script src="/assets/js/jquery-3.6.0.min.js"></script>
+			<script src="/assets/js/validation.js"></script>
 	</body>
 	<script type="text/javascript">
 		function join() {
@@ -116,7 +116,7 @@
 			
 			$.ajax({
 				type: "POST",
-				url: "insertMember.do",
+				url: "/insertMember.do",
 				data: {
 					id: $("#id").val(),
 					pw: $("#pw1").val(),
@@ -126,7 +126,7 @@
 				success: function(res) { 
 					if (res == true) {
 						alert("성공적으로 회원가입이 완료되었습니다.");
-						location.href="login.jsp";
+						location.href="/jsp-member/login.jsp";
 					} else {
 						alert("회원가입에 실패하였습니다. 확인 후 다시 시도해주세요.");
 					}

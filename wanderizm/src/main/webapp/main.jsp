@@ -13,8 +13,8 @@
 		<title>WANDERIZM</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<link rel="icon" href="images/road-trip.png">
+		<link rel="stylesheet" href="/assets/css/main.css" />
+		<link rel="icon" href="/images/road-trip.png">
 		<script src="http://maps.google.com/maps/api/js?key=AIzaSyCYMgnB665pxh3-7R3gvJs4ozv41LNuhsw&region=kr"></script>
 	</head>
 	<body class="is-preload">
@@ -44,7 +44,7 @@
 									</div>
 									<span class="image object">
 									<!-- 지도 출력 -->
-										<!-- <img src="images/pic10.jpg" alt="" /> -->
+										<!-- <img src="/images/pic10.jpg" alt="" /> -->
 										<div id="map" style="width: 100%; height: 100%;"></div>
 									</span>
 								</section>
@@ -67,11 +67,11 @@
 			</div>
 
 		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+			<script src="/assets/js/jquery.min.js"></script>
+			<script src="/assets/js/browser.min.js"></script>
+			<script src="/assets/js/breakpoints.min.js"></script>
+			<script src="/assets/js/util.js"></script>
+			<script src="/assets/js/main.js"></script>
 
 	</body>
 	
@@ -106,11 +106,11 @@
 			for (var i=0; i<marker.length; i++) {
 				marker[i].addListener('click', function() {
 					console.log(this);
-					/* location.href="getBoardList.do?b_type=review&n_id=" + this.n_id; */
+					/* location.href="/getBoardList.do?b_type=review&n_id=" + this.n_id; */
 					map.setZoom(5);
 					map.setCenter({lat: Number(this.lat) , lng: Number(this.lng)});
 					window.setTimeout(() => {
-						location.href="getBoardList.do?b_type=review&n_id=" + this.n_id;
+						location.href="/getBoardList.do?b_type=review&n_id=" + this.n_id;
 					}, 1000);
 				});
 			}

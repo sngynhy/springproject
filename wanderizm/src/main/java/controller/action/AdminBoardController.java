@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import model.adminboard.AdminBoardService;
 import model.adminboard.AdminBoardVO;
@@ -20,49 +21,45 @@ public class AdminBoardController {
 	@Autowired
 	private AdminBoardService boardService;
 	
-	@RequestMapping("/getRecommandList.do")
-	public String getList(AdminBoardVO vo, Model model) {
+	@RequestMapping("/getAdminBoardList.do")
+	public String getAdminBoardList(AdminBoardVO vo, Model model) {
 		List<AdminBoardVO> datas = boardService.getBoardList(vo);
 		model.addAttribute("datas", datas);
-		return "recommand/list.jsp";
+		return "/jsp-adminboard/list.jsp";
 	}
 	
-	@RequestMapping("/getRecommand.do")
-	public String getRecommand(HttpSession session, AdminBoardVO vo, Model model) {
+	@RequestMapping("/getAdminBoard.do")
+	public String getAdminBoard(HttpSession session, AdminBoardVO vo, Model model) {
 		if ((String) session.getAttribute("sessionID") == null) {
 			vo.setId("");
 		} else {
 			vo.setId((String) session.getAttribute("sessionID"));
 		}
 		model.addAttribute("data", boardService.getBoard(vo));
-		return "recommand/view.jsp";
+		return "/jsp-adminboard/view.jsp";
 	}
-	
-	@RequestMapping("/insertRecommandView.do")
-	public String getInsertView(Model model) {
-		return "recommand/insert.jsp";
-	}
-	
-	@ResponseBody
-	@RequestMapping("/insertRecommand.do")
-	public String setRecommand(Model model) {
+
+	@RequestMapping("/insertAdminBoard.do")
+	public String insertAdminBoard(HttpSession session, AdminBoardVO vo) {
+		vo.setId((String) session.getAttribute("sessionID"));
+		boardService.insertBoard(vo);
 		return "";
 	}
 	
-	@RequestMapping("/updateRecommandView.do")
+	@RequestMapping("/updateAdminBoardView.do")
 	public String getUpdateView() {
-		return "recommand/insert.jsp";
+		return "/jsp-adminboard/insert.jsp";
 	}
 	
 	@ResponseBody
-	@RequestMapping("/updateRecommand.do")
-	public String updateRecommand(Model model) {
+	@RequestMapping("/updateAdminBoard.do")
+	public String updateAdminBoard(Model model) {
 		return "";
 	}
 	
 	@ResponseBody
-	@RequestMapping("/deleteRecommand.do")
-	public String deleteRecommand() {
+	@RequestMapping("/deleteAdminBoard.do")
+	public String deleteAdminBoard() {
 		return "true";
 	}
 }

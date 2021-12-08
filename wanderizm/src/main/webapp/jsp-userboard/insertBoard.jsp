@@ -13,8 +13,8 @@
 		<title>WANDERIZM</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<link rel="icon" href="images/road-trip.png">
+		<link rel="stylesheet" href="/assets/css/main.css" />
+		<link rel="icon" href="/images/road-trip.png">
 		<script src="https://cdn.ckeditor.com/ckeditor5/30.0.0/classic/ckeditor.js"></script>
 		<script src="https://ckeditor.com/apps/ckfinder/3.5.0/ckfinder.js"></script>
 		<style>
@@ -65,7 +65,7 @@
 								</header>
 								
 								<!-- 게시글 입력 폼 -->
-								<form method="post" action="insertBoard.do" name="form1">
+								<form method="post" action="/insertBoard.do" name="form1">
 									<input type="hidden" name="id" value="${sessionID}">
 									<input type="hidden" name="b_type" value="${data.b_type}">
 									<input type="hidden" name="cate_id" value="${data.cate_id}">
@@ -74,7 +74,7 @@
 									<h2><span style="float: left; width: 10%">제목 : </span><input type="text" name="title" id="title" required="required" style="width: 90%;"></h2>
 									<!-- CKEditor -->
 									<textarea name="content" id="editor"></textarea>
-									<input type="button" value="등록" onclick="send()" class="button" style="float: right;">
+									<input type="button" value="등록" onclick="send()" class="button" style="float: right; margin-top:10px;">
 								</form>
 							</section>
 						</div>
@@ -85,11 +85,11 @@
 			</div>
 
 		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+			<script src="/assets/js/jquery.min.js"></script>
+			<script src="/assets/js/browser.min.js"></script>
+			<script src="/assets/js/breakpoints.min.js"></script>
+			<script src="/assets/js/util.js"></script>
+			<script src="/assets/js/main.js"></script>
 	</body>
 	<script>
 	function send() {
@@ -108,19 +108,19 @@
 	function changeCateId(obj) {
 		var selectValue = obj.value;
 		/* console.log(selectValue); */
-		window.location.href="getBoardList.do?b_type=info&cate_id=" + selectValue;
+		window.location.href="/getBoardList.do?b_type=info&cate_id=" + selectValue;
 	}
 	function changeN_Id(obj) {
 		var selectValue = obj.value;
 		/* console.log(selectValue); */
-		window.location.href="getBoardList.do?b_type=review&n_id=" + selectValue;
+		window.location.href="/getBoardList.do?b_type=review&n_id=" + selectValue;
 	}
     // 3. CKEditor5를 생성할 textarea 지정
     ClassicEditor
 	.create( document.querySelector('#editor'),{
 		language: "ko",
 		ckfinder: {
-	        uploadUrl: 'fileupload.do'
+	        uploadUrl: '/fileupload.do'
 		},
 		alignment: {
             options: [ 'left', 'center', 'right' ]
@@ -130,9 +130,7 @@
         }
 	})
 	.then( editor => {
-
-        console.log( 'Editor was initialized', editor ); 
-
+        console.log( 'Editor was initialized', editor );
     } )
 	.catch( error => {
 		console.error( error );

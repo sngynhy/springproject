@@ -36,7 +36,7 @@ public class FileManageController {
 //		System.out.println(" path : " +request.getSession().getServletContext().getRealPath("images/upload"));
 		
 		String savePath = request.getSession().getServletContext().getRealPath("images/upload/"); // 실제 저장되는 경로
-		String loadPath = "/app/images/upload/"; // 서버 상의 경로 - 서버에서 파일에 접근하는 경로, 저장 디렉토리
+		String loadPath = "/images/upload/"; // 서버 상의 경로 - 서버에서 파일에 접근하는 경로, 저장 디렉토리
 		
 		for(MultipartFile mf : fileList) {
 //			System.out.println(" size : "+ fileList.get(0).getSize());

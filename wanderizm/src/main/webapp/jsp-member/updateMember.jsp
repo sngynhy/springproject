@@ -13,8 +13,8 @@
 		<title>WANDERIZM</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<link rel="icon" href="images/road-trip.png">
+		<link rel="stylesheet" href="/assets/css/main.css" />
+		<link rel="icon" href="/images/road-trip.png">
 		<style>
 			.resultText {
 			    color: red;
@@ -77,18 +77,18 @@
 			</div>
 
 		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
-			<script src="jquery-3.6.0.min.js"></script>
-			<script src="assets/js/validation.js"></script>
+			<script src="/assets/js/jquery.min.js"></script>
+			<script src="/assets/js/browser.min.js"></script>
+			<script src="/assets/js/breakpoints.min.js"></script>
+			<script src="/assets/js/util.js"></script>
+			<script src="/assets/js/main.js"></script>
+			<script src="/assets/js/jquery-3.6.0.min.js"></script>
+			<script src="/assets/js/validation.js"></script>
 	</body>
 	<script type="text/javascript">
 	function delMem() {
 		if (confirm("정말로 탈퇴 하시겠습니까?")) {
-			window.location.href="deleteMember.do";
+			window.location.href="/deleteMember.do";
 		}
 	}
 	function updatePw() {
@@ -108,7 +108,7 @@
 		
 		$.ajax({
 			type: "POST",
-			url: "updateMember.do",
+			url: "/updateMember.do",
 			data: {
 				email: $("#email").val(),
 				phone: $("#phone").val()
@@ -116,7 +116,7 @@
 			success: function(res) { 
 				if (res == true) {
 					alert("성공적으로 회원 정보가 변경되었습니다.");
-					location.href="mypage.do";
+					location.href="/mypage.do";
 				} else {
 					alert("정보 변경에 실패하였습니다. 확인 후 다시 시도해주세요.");
 				}

@@ -10,25 +10,25 @@
 				<h2>Menu</h2>
 			</header>
 			<ul>		
-				<li><a href="getRecommandList.do">FOR WANDERIER</a></li>
+				<li><a href="/getAdminBoardList.do">FOR WANDERIER</a></li>
 				<li><span class="opener">여행 정보 게시판</span>
 					<ul>
 						<c:forEach var="v" items="${sidebarData.cateData}">
-						<li><a href="getBoardList.do?b_type=info&cate_id=${v.cate_id}">${v.category}</a></li>
+						<li><a href="/getBoardList.do?b_type=info&cate_id=${v.cate_id}">${v.category}</a></li>
 						</c:forEach>
 					</ul>
 				</li>
-				<li><a href="getBoardList.do?b_type=ask">자유 질문 게시판</a></li>
+				<li><a href="/getBoardList.do?b_type=ask">자유 질문 게시판</a></li>
 				<li><span class="opener">여행 후기 게시판</span>
 					<ul>
 						<c:forEach var="v" items="${sidebarData.nationData}">
-						<li><a href="getBoardList.do?b_type=review&n_id=${v.n_id}">${v.nation}</a></li>
+						<li><a href="/getBoardList.do?b_type=review&n_id=${v.n_id}">${v.nation}</a></li>
 						</c:forEach>
 					</ul>
 				</li>
 				<c:if test="${sessionID eq 'seong'}">
-				<li><a href="generic.jsp">generic</a></li>
-				<li><a href="elements.jsp">element</a></li>				
+				<li><a href="/generic.jsp">generic</a></li>
+				<li><a href="/elements.jsp">element</a></li>				
 				</c:if>
 			</ul>
 		</nav>
