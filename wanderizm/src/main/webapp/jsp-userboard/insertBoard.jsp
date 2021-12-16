@@ -71,7 +71,7 @@
 									<input type="hidden" name="cate_id" value="${data.cate_id}">
 									<input type="hidden" name="a_id" value="${data.a_id}">
 									<input type="hidden" name="n_id" value="${data.n_id}">
-									<h2><span style="float: left; width: 10%">제목 : </span><input type="text" name="title" id="title" required="required" style="width: 90%;"></h2>
+									<h2><span style="float: left; width: 10%">제목 : </span><input type="text" name="title" id="title" style="width: 90%;"></h2>
 									<!-- CKEditor -->
 									<textarea name="content" id="editor"></textarea>
 									<input type="button" value="등록" onclick="send()" class="button" style="float: right; margin-top:10px;">
@@ -92,6 +92,17 @@
 			<script src="/assets/js/main.js"></script>
 	</body>
 	<script>
+	function changeCateId(obj) {
+		var selectValue = obj.value;
+		/* console.log(selectValue); */
+		window.location.href="/getBoardList.do?b_type=info&cate_id=" + selectValue;
+	}
+	function changeN_Id(obj) {
+		var selectValue = obj.value;
+		/* console.log(selectValue); */
+		window.location.href="/getBoardList.do?b_type=review&n_id=" + selectValue;
+	}
+	
 	function send() {
 		if ($('#title').val() == '') {
 			alert('제목을 입력해주세요.');
@@ -105,17 +116,7 @@
 		}
 		document.form1.submit();
 	}
-	function changeCateId(obj) {
-		var selectValue = obj.value;
-		/* console.log(selectValue); */
-		window.location.href="/getBoardList.do?b_type=info&cate_id=" + selectValue;
-	}
-	function changeN_Id(obj) {
-		var selectValue = obj.value;
-		/* console.log(selectValue); */
-		window.location.href="/getBoardList.do?b_type=review&n_id=" + selectValue;
-	}
-    // 3. CKEditor5를 생성할 textarea 지정
+    // CKEditor5를 생성할 textarea 지정
     ClassicEditor
 	.create( document.querySelector('#editor'),{
 		language: "ko",

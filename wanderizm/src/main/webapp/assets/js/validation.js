@@ -10,7 +10,7 @@ function checkID() {
 	
 	$.ajax({ 
 		type: "GET",
-		url: "checkID.do",
+		url: "/checkID.do",
 		data: {
 			id : $("#id").val() // $().val() : 값 가져오기
 		},

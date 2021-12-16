@@ -46,9 +46,10 @@
 								</div>
 								
 								<!-- 게시글 입력 폼 -->
-								<form method="post" action="/insertRecommend.do" name="form1">
+								<form method="post" action="/insertAdminBoard.do" name="form1" enctype="multipart/form-data">
+								<!-- <form method="post" action="/insertAdminBoard.do" name="form1"> -->
 									<input type="hidden" name="id" value="${sessionID}">
-									<h2><span style="float: left; width: 10%">제목 : </span><input type="text" name="title" id="title" required="required" style="width: 90%;"></h2>
+									<h2><span style="float: left; width: 10%">제목 : </span><input type="text" name="title" id="title" style="width: 90%;"></h2>
 									<!-- CKEditor -->
 									<textarea name="content" id="editor"></textarea>
 									

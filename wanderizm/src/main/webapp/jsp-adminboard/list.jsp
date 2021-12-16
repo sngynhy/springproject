@@ -36,9 +36,9 @@
 							<section>
 								<div class="recommand-header">
 									<h2 class="recommand-title">Recommend</h2>
-									<c:if test="${sessionID == 'seong'}">
+									<c:if test="${sessionID == 'admin'}">
 									<div class="recommand-btn-area">
-										<a href="/jsp-adminboard/insert.jsp" class="button primary samll">작성하기</a>
+										<a href="/jsp-adminboard/insert.jsp" class="button">작성하기</a>
 									</div>
 									</c:if>
 								</div>

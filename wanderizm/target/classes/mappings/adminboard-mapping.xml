@@ -28,7 +28,7 @@
 	
 	<select id="getBoardList" resultType="adminboard">
 	<![CDATA[
-		SELECT * FROM ADMINBOARD ORDER BY B_DATE DESC
+		SELECT * FROM ADMINBOARD ORDER BY LIKE_CNT DESC
 	]]>
 	</select>
 	

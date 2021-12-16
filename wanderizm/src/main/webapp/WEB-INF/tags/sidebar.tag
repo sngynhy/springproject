@@ -26,10 +26,6 @@
 						</c:forEach>
 					</ul>
 				</li>
-				<c:if test="${sessionID eq 'seong'}">
-				<li><a href="/generic.jsp">generic</a></li>
-				<li><a href="/elements.jsp">element</a></li>				
-				</c:if>
 			</ul>
 		</nav>
 
@@ -38,10 +34,8 @@
 			<header class="major">
 				<h2>Get in touch</h2>
 			</header>
-			<p>Sed varius enim lorem ullamcorper dolore aliquam aenean ornare
-				velit lacus, ac varius enim lorem ullamcorper dolore. Proin sed
-				aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus
-				aliquam.</p>
+			<p>Feel free to contact me!</p>
+			
 			<ul class="contact">
 				<li class="icon solid fa-envelope"><a href="https://mail.google.com/mail">sngynhy@gmail.com</a></li>
 				<li class="icon solid fa-home"><a href="https://sngynhy.tistory.com">https://sngynhy.tistory.com/</a></li>

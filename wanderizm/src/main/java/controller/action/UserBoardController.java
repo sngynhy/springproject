@@ -76,9 +76,9 @@ public class UserBoardController {
 		List<UserBoardVO> datas = boardService.getBoardList(vo); // 현재 페이지 게시글 목록 조회 - 10개씩 
 		
 		model.addAttribute("datas", datas); // 정보 저장 - setAttribute의 역할
-		model.addAttribute("b_type", vo.getB_type());
-		model.addAttribute("cate_id", vo.getCate_id());
-		model.addAttribute("n_id", vo.getN_id());
+		model.addAttribute("b_type", vo.getB_type()); // 게시판 종류 - 상위 카테고리 ID
+		model.addAttribute("cate_id", vo.getCate_id()); // 하위 카테고리 ID
+		model.addAttribute("n_id", vo.getN_id()); // 국가 ID
 		model.addAttribute("pagination", pagination);
 		return "/jsp-userboard/getBoardList.jsp";
 	}
@@ -106,7 +106,7 @@ public class UserBoardController {
 	public String insertBoard(HttpSession session, UserBoardVO vo) {
 		vo.setId((String) session.getAttribute("sessionID"));
 		boardService.insertBoard(vo);
-		return "redirect:getBoardList.do?b_type=" + vo.getB_type() + "&cate_id=" + vo.getCate_id() + "&a_id=" + vo.getA_id() + "&n_id=" + vo.getN_id();
+		return "redirect:/getBoardList.do?b_type=" + vo.getB_type() + "&cate_id=" + vo.getCate_id() + "&a_id=" + vo.getA_id() + "&n_id=" + vo.getN_id();
 	}
 	
 	@RequestMapping("/updateboardView.do")
@@ -119,14 +119,14 @@ public class UserBoardController {
 	@RequestMapping("/updateBoard.do")
 	public String updateBoard(UserBoardVO vo, Model model) {
 		boardService.updateBoard(vo);
-		return "redirect:getBoard.do?b_id=" + vo.getB_id();
+		return "redirect:/getBoard.do?b_id=" + vo.getB_id();
 	}
 	
 	
 	@RequestMapping("/deleteBoard.do")
 	public String deleteBoard(UserBoardVO vo, Model model) throws IOException {
 		boardService.deleteBoard(vo);
-		return "redirect:getBoardList.do?b_type=" + vo.getB_type() + "&cate_id=" + vo.getCate_id() + "&a_id=" + vo.getA_id() + "&n_id=" + vo.getN_id();
+		return "redirect:/getBoardList.do?b_type=" + vo.getB_type() + "&cate_id=" + vo.getCate_id() + "&a_id=" + vo.getA_id() + "&n_id=" + vo.getN_id();
 	}
 	
 	@ResponseBody

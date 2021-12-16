@@ -98,7 +98,6 @@ public class MemberController {
 	@RequestMapping("/updatePw.do")
 	public boolean updatePw(HttpSession session, HttpServletResponse response, MemberVO vo, Model model) throws IOException {
 		vo.setId((String) session.getAttribute("sessionID")); // 자동 로그아웃 된 상태일 경우를 대비해 sessionID 값의 존재 유무 판단 필요
-//		System.out.println(vo);
 		if (memberService.updateMember(vo) > 0) {
 			return true;
 		} else {

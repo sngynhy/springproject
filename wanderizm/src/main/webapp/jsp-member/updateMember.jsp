@@ -92,7 +92,7 @@
 		}
 	}
 	function updatePw() {
-		var ret = window.open('updatePw.jsp', '비밀번호 변경하기', 'width=700, height=500');
+		var ret = window.open('/jsp-member/updatePw.jsp', '비밀번호 변경하기', 'width=700, height=500');
 	}
 	//updateMember.do
 	function updateMember() {
