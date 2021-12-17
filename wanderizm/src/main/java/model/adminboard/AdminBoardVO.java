@@ -1,5 +1,7 @@
 package model.adminboard;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class AdminBoardVO {
 
 	private int b_id;
@@ -9,6 +11,7 @@ public class AdminBoardVO {
 	private String b_date;
 	private String u_date;
 	private String id;
+	private MultipartFile fileUpload;
 	private String img_path; // 썸네일 이미지 경로
 	private int fav; // 찜 기록 - 찜 안한 경우 0, 찜한 경우 1
 	
@@ -54,23 +57,29 @@ public class AdminBoardVO {
 	public void setId(String id) {
 		this.id = id;
 	}
-	public int getFav() {
-		return fav;
-	}
-	public void setFav(int fav) {
-		this.fav = fav;
-	}
 	public String getImg_path() {
 		return img_path;
 	}
 	public void setImg_path(String img_path) {
 		this.img_path = img_path;
 	}
+	public int getFav() {
+		return fav;
+	}
+	public void setFav(int fav) {
+		this.fav = fav;
+	}
 	
+	public MultipartFile getFileUpload() {
+		return fileUpload;
+	}
+	public void setFileUpload(MultipartFile fileUpload) {
+		this.fileUpload = fileUpload;
+	}
 	@Override
 	public String toString() {
 		return "AdminBoardVO [b_id=" + b_id + ", title=" + title + ", content=" + content + ", like_cnt=" + like_cnt
-				+ ", b_date=" + b_date + ", u_date=" + u_date + ", id=" + id + ", img_path=" + img_path + ", fav=" + fav
-				+ "]";
+				+ ", b_date=" + b_date + ", u_date=" + u_date + ", id=" + id + ", fileUpload=" + fileUpload
+				+ ", img_path=" + img_path + ", fav=" + fav + "]";
 	}
 }

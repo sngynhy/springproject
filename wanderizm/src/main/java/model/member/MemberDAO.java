@@ -20,19 +20,15 @@ public class MemberDAO {
 		return mybatis.update("memberDAO.updateMember", vo);
 	}
 	
-	@Transactional
+	@Transactional(rollbackFor = {Exception.class})
 	public int deleteMember(MemberVO vo) {
-		try {
-			int res = mybatis.delete("memberDAO.deleteMember", vo);
-			res += mybatis.delete("memberDAO.deleteBoard", vo);
-			res += mybatis.delete("memberDAO.deleteReply", vo);
-			res += mybatis.delete("memberDAO.deleteLikes", vo);
-			System.out.println("res : " + res);
-			return res;
-		} catch (Exception e) {
-			e.printStackTrace();
-			return 0;
-		}
+		int res = 0;
+		res += mybatis.delete("memberDAO.deleteMember", vo);
+		res += mybatis.delete("memberDAO.deleteBoard", vo);
+		res += mybatis.delete("memberDAO.deleteReply", vo);
+		res += mybatis.delete("memberDAO.deleteLikes", vo);
+		System.out.println("실행 결과 수  : " + res);
+		return res;
 	}
 	
 	public MemberVO getMember(MemberVO vo) {

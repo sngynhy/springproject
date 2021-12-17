@@ -11,28 +11,21 @@ public class LikeDAO {
 	@Autowired
 	private SqlSessionTemplate mybatis;
 	
-	@Transactional
+	@Transactional(rollbackFor = {Exception.class})
 	public int insertLike(LikeVO vo) {
-		try {
-			mybatis.insert("likeDAO.insertLike", vo);
-			mybatis.update("likeDAO.likeCntPlus", vo);
-			return 1;
-		} catch(Exception e) {
-			e.printStackTrace();
-			return 0;
-		}
+		int res = 0;
+		res += mybatis.insert("likeDAO.insertLike", vo);
+		res += mybatis.update("likeDAO.likeCntPlus", vo);
+		System.out.println("실행 결과 수  : " + res);
+		return res;
 	}
 	
-	@Transactional
+	@Transactional(rollbackFor = {Exception.class})
 	public int deleteLike(LikeVO vo) {
-		try {
-			mybatis.delete("likeDAO.deleteLike", vo);
-			mybatis.update("likeDAO.likeCntMinus", vo);
-			return 1;
-		} catch(Exception e) {
-			e.printStackTrace();
-			return 0;
-		}
+		int res = 0;
+		res += mybatis.delete("likeDAO.deleteLike", vo);
+		res += mybatis.update("likeDAO.likeCntMinus", vo);
+		System.out.println("실행 결과 수  : " + res);
+		return res;
 	}
-	
 }

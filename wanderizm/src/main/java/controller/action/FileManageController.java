@@ -32,9 +32,6 @@ public class FileManageController {
 		String jsonStr = ""; // 맵에 저장되어 있는 데이터를  json 형식의 string 타입으로 변환하여 저장할 변수
 		
 		String imgPath = null;
-		
-		System.out.println(" path : " + request.getSession().getServletContext().getRealPath("images/upload"));
-		
 		String savePath = request.getSession().getServletContext().getRealPath("/images/upload/"); // 실제 저장되는 경로
 		String loadPath = "/images/upload/"; // 서버 상의 경로 - 서버에서 파일에 접근하는 경로, 저장 디렉토리
 		

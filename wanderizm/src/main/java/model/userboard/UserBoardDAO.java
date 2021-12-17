@@ -21,18 +21,14 @@ public class UserBoardDAO {
 		return mybatis.update("userboardDAO.updateBoard", vo);
 	}
 	
-	@Transactional
+	@Transactional(rollbackFor = {Exception.class})
 	public int deleteBoard(UserBoardVO vo) {
-		try {
-			int res = mybatis.delete("userboardDAO.deleteBoard", vo); // 게시글 삭제
-			res += mybatis.delete("userboardDAO.deleteReply", vo); // 댓글 삭제
-			res += mybatis.delete("userboardDAO.deleteLikes", vo); // 찜 삭제
-			System.out.println("실행 결과 수  : " + res);
-			return res;
-		} catch (Exception e) {
-			e.printStackTrace();
-			return 0;
-		}
+		int res = 0;
+		res += mybatis.delete("userboardDAO.deleteBoard", vo); // 게시글 삭제
+		res += mybatis.delete("userboardDAO.deleteReply", vo); // 댓글 삭제
+		res += mybatis.delete("userboardDAO.deleteLikes", vo); // 찜 삭제
+		System.out.println("실행 결과 수  : " + res);
+		return res;
 	}
 	
 	public UserBoardVO getBoard(UserBoardVO vo) {

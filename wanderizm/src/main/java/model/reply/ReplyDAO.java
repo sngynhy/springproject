@@ -13,27 +13,21 @@ public class ReplyDAO {
 	@Autowired
 	private SqlSessionTemplate mybatis;
 	
-	@Transactional
+	@Transactional(rollbackFor = {Exception.class})
 	public int insertReply(ReplyVO vo) {
-		try {
-			mybatis.insert("replyDAO.insertReply", vo);
-			mybatis.update("replyDAO.rCntPlus", vo);
-			return 1;
-		} catch (Exception e) {
-			e.printStackTrace();
-			return 0;
-		}
+		int res = 0;
+		res += mybatis.insert("replyDAO.insertReply", vo);
+		res += mybatis.update("replyDAO.rCntPlus", vo);
+		System.out.println("실행 결과 수  : " + res);
+		return res;
 	}
-	@Transactional
+	@Transactional(rollbackFor = {Exception.class})
 	public int deleteReply(ReplyVO vo) {
-		try {
-			mybatis.delete("replyDAO.deleteReply", vo);
-			mybatis.update("replyDAO.rCntMinus", vo);
-			return 1;
-		} catch (Exception e) {
-			e.printStackTrace();
-			return 0;
-		}
+		int res = 0;
+		res += mybatis.delete("replyDAO.deleteReply", vo);
+		res += mybatis.update("replyDAO.rCntMinus", vo);
+		System.out.println("실행 결과 수  : " + res);
+		return res;
 	}
 	
 	public List<ReplyVO> getReplyList(ReplyVO vo) {

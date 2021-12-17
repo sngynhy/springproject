@@ -21,16 +21,13 @@ public class AdminBoardDAO {
 		return mybatis.update("adminboardDAO.updateBoard", vo);
 	}
 	
-	@Transactional
+	@Transactional(rollbackFor = {Exception.class})
 	public int deleteBoard(AdminBoardVO vo) {
-		try {
-			int res = mybatis.delete("adminboardDAO.deleteBoard", vo); // 게시글 삭제
-			res += mybatis.delete("adminboardDAO.deleteLikes", vo); // 찜 삭제
-			return res;
-		} catch (Exception e) {
-			e.printStackTrace();
-			return 0;
-		}
+		int res = 0;
+		res += mybatis.delete("adminboardDAO.deleteBoard", vo);
+		res += mybatis.delete("adminboardDAO.deleteLikes", vo);
+		System.out.println("실행 결과 수  : " + res);
+		return res;
 	}
 	
 	public AdminBoardVO getBoard(AdminBoardVO vo) {

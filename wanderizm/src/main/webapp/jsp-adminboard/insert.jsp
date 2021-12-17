@@ -57,7 +57,7 @@
 									<div class="image-container" style="float: left;">
 									    <img style="width: 100px;" id="preview-image" src="/images/preview.png">
 									</div>
-									<input type="file" class="hidden_input" id="input-image" name="img_path" accept="image/jpeg, image/jpg, image/png" style="margin-top: 40px;">
+									<input type="file" class="hidden_input" id="input-image" name="fileUpload" accept="image/jpeg, image/jpg, image/png" style="margin-top: 40px;">
 									<input type="button" value="등록" onclick="send()" class="button" style="float: right; margin-top:10px;">
 								</form>
 								

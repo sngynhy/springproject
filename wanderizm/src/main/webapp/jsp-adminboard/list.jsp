@@ -47,7 +47,7 @@
 									<!-- list for start -->
 									<c:forEach var="v" items="${datas}">
 									<article>
-										<a href="/getAdminBoard.do?b_id=${v.b_id}" class="image"><img src="/${v.img_path}" /></a>
+										<a href="/getAdminBoard.do?b_id=${v.b_id}" class="image"><img src="${v.img_path}" /></a>
 										<h2><a href="/getAdminBoard.do?b_id=${v.b_id}">${v.title}</a></h2>
 									</article>
 									</c:forEach>

@@ -86,9 +86,9 @@
 			<script src="/assets/js/breakpoints.min.js"></script>
 			<script src="/assets/js/util.js"></script>
 			<script src="/assets/js/main.js"></script>
-	</body>
-	<script>
-    // 3. CKEditor5를 생성할 textarea 지정
+</body>
+<script>
+    // CKEditor5를 생성할 textarea 지정
     ClassicEditor
     .create( document.querySelector('#editor'),{
 		language: "ko",
@@ -110,5 +110,5 @@
 	.catch( error => {
 		console.error( error );
 	} );
-    </script>
+</script>
 </html>
